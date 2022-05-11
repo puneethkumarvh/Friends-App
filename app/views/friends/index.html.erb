@@ -9,13 +9,17 @@
 <th>Email</th>
 <th>Phone</th>
 <th>Twitter</th>
+
 <th> </th>
+
+
 </tr>
 </thead>
 <tbody>
 <div id="friends">
 
   <% @friends.each do |friend| %>
+    <% if friend.user == current_user %>
     <tr>
     <td><%=  friend.first_name %></td>
     <td><%= friend.last_name %></td>
@@ -23,9 +27,14 @@
     <td><%= friend.phone %></td>
     <td><%= friend.twitter %></td>
     <td>
+    
     <p>
      <%= link_to "Show ", friend ,class:"btn btn-secondary"%>
-    </p></td></tr>
+    </p></td>
+    
+    </tr>
+    <% end %>
+    
   <% end %>
   
   
