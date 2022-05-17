@@ -67,6 +67,11 @@ class FriendsController < ApplicationController
 
   end
 
+  def import 
+    Friend.import(params[:file])
+    redirect_to root_url, notice:"Friends added successfully"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_friend
