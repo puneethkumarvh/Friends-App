@@ -1,5 +1,4 @@
 <% if user_signed_in? %>
-
 <h1>Friends</h1>
 <table class="table table-striped table-hover">
 <thead class="table-dark">
@@ -45,8 +44,13 @@
 
 </table>
 
-<%= link_to "New friend", new_friend_path %>
+<h3> Import Friends</h3>
+<%= form_tag import_friends_path,multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Upload" %>
+<% end %>
 
+<%= link_to "New friend", new_friend_path %>
 <% else %>
 <h1>Hello,Welcome to Friends App !</h1>
 <p>This is my first web application based on ruby on rails.</p>

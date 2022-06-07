@@ -66,6 +66,11 @@ class FriendsController < ApplicationController
     redirect_to friends_path, notice: 'Not Authorised to edit this friend' if @friend.nil?
   end
 
+  def import 
+    current_user.friends.import(params[:file])
+    redirect_to root_url, notice:"Friends added successfully through import"
+  end
+
   private
 
   # Use callbacks to share common setup or constraints between actions.
