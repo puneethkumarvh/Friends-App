@@ -68,8 +68,8 @@ class FriendsController < ApplicationController
   end
 
   def import 
-    Friend.import(params[:file])
-    redirect_to root_url, notice:"Friends added successfully"
+    current_user.friends.import(params[:file])
+    redirect_to root_url, notice:"Friends added successfully through import"
   end
 
   private
